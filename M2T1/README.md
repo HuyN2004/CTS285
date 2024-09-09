@@ -2,7 +2,7 @@
 
 ## goals:
 - to learn basic Flask programming 
-- to be able t repeat a server config
+- to be able to repeat a server config
 - maybe to have fun
 
 ## lessons
