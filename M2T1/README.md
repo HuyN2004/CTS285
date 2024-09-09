@@ -28,3 +28,9 @@ to  turn it off:
 start installing requirements:
 - pip install flask
 - pip freeze > requirements.txt
+
+now we can write minimal Flask app to test it
+TODO: write a Flask app that does something userful
+
+to start:
+- flask --app hello run
