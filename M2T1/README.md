@@ -34,3 +34,7 @@ TODO: write a Flask app that does something userful
 
 to start:
 - flask --debug --app hello run
+
+## M2T2
+Next, we start with "a first cut with dummy data"
+- add main_page.html
