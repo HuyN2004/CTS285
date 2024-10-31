@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Bank</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Memory Bank</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('answer_checker') }}">Answer Checker</a></li>
+                <li><a href="{{ url_for('memory_bank') }}">Memory Bank</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Store Problems in Memory Bank</h2>
+        <form method="POST">
+            <label for="problem">Enter a problem (e.g., 9 + 4 = 13):</label><br>
+            <input type="text" id="problem" name="problem" required><br>
+            <button type="submit" name="store">Store Problem</button>
+        </form>
+
+        <h2>Stored Problems</h2>
+        <form method="POST">
+            <button type="submit" name="reset">Reset Memory Bank</button>
+        </form>
+
+        {% if problems %}
+            <ul>
+                {% for problem in problems %}
+                    <li>{{ problem }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No problems stored yet.</p>
+        {% endif %}
+
+        <h2>Start Solving Stored Problems</h2>
+        <form method="POST">
+            <button type="submit" name="start">Start Solving</button>
+        </form>
+
+        {% if result %}
+            <h3>Results:</h3>
+            <pre>{{ result }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>

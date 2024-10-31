@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solve Problems</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Solve Problems</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('memory_bank') }}">Memory Bank</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% if current_problem %}
+            <h2>Current Problem</h2>
+            <p>{{ current_problem.split('=')[0].strip() }}</p>
+            <form method="POST">
+                <label for="user_answer">Your Answer:</label><br>
+                <input type="text" id="user_answer" name="user_answer" required><br>
+                <input type="hidden" name="problem_index" value="{{ problem_index }}">
+                <button type="submit">Submit Answer</button>
+            </form>
+        {% else %}
+            <p>No problems to solve. Please add problems to the Memory Bank first.</p>
+        {% endif %}
+
+        {% if result %}
+            <h3>Result:</h3>
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
